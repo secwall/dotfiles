@@ -1,0 +1,29 @@
+# Color in ls and grep
+alias ls='ls --color'
+alias grep='grep --color'
+
+# Default text editor
+export EDITOR="vim"
+
+# Colors like gentoo
+if [[ ${EUID} == 0 ]] ; then
+PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+else
+PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+fi
+
+# Add history instead if overwite history file on exit
+shopt -s histappend
+
+export HISTFILESIZE="16384"
+export HISTSIZE="16384"
+
+# TM's aliases
+alias arh='~/tm/bin/arh ~/tm/data/arh.db'
+alias crl='~/tm/bin/crl ~/tm/data/crl.db'
+alias dist='~/tm/bin/dist ~/tm/data/dist.db'
+alias ind='~/tm/bin/ind ~/tm/data/ind.db'
+alias fin='~/tm/bin/fin ~/tm/data/fin.db'
+alias nback='~/tm/bin/nback'
+alias pom='~/tm/bin/pom'
+alias sal='~/tm/bin/sal'

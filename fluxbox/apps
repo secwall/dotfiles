@@ -1,0 +1,29 @@
+[app] (sakura)
+    [Maximized] {Yes}
+    [Deco] {NONE}
+[end]
+
+[app] (opera)
+    [Maximized] {Yes}
+    [Deco] {NONE}
+[end]
+
+[app] (evince)
+    [Maximized] {Yes}
+    [Deco] {NONE}
+[end]
+
+[app] (claws-mail)
+    [Maximized] {Yes}
+    [Deco] {NONE}
+[end]
+
+[app] (kchmviewer)
+    [Maximized] {Yes}
+    [Deco] {NONE}
+[end]
+
+[app] (vlc)
+    [Maximized] {Yes}
+    [Deco] {NONE}
+[end]

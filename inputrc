@@ -1,0 +1,6 @@
+# Handy history search
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+# Register-independent completion
+set completion-ignore-case on
