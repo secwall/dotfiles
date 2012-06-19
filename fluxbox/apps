@@ -27,3 +27,8 @@
     [Maximized] {Yes}
     [Deco] {NONE}
 [end]
+
+[app] (qtcreator)
+    [Maximized] {Yes}
+    [Deco] {NONE}
+[end]

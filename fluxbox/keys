@@ -45,6 +45,9 @@ Mod4 F4 :Exec evince
 # xchm
 Mod4 F5 :Exec kchmviewer
 
+# qtcreator
+Mod4 F5 :Exec qtcreator
+
 # wireshark
 Mod4 F6 :Exec wireshark
 
