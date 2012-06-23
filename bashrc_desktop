@@ -21,7 +21,6 @@ export HISTSIZE="16384"
 # TM's aliases
 alias arh='~/tm/bin/arh ~/tm/data/arh.db'
 alias crl='~/tm/bin/crl ~/tm/data/crl.db'
-alias dist='~/tm/bin/dist ~/tm/data/dist.db'
 alias ind='~/tm/bin/ind ~/tm/data/ind.db'
 alias fin='~/tm/bin/fin ~/tm/data/fin.db'
 alias nback='~/tm/bin/nback'
