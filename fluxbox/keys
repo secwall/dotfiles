@@ -31,13 +31,16 @@ Mod4 Tab :NextTab
 Mod4 Shift Tab :PrevTab
 
 # terminal
-Mod4 F1 :Exec sakura
+Mod4 Return :Exec sakura
+
+# claws-mail 
+Mod4 F1 :Exec claws-mail
 
 # browser
 Mod4 F2 :Exec opera
 
-# claws-mail 
-Mod4 F3 :Exec claws-mail
+# qtcreator
+Mod4 F3 :Exec qtcreator
 
 # evince
 Mod4 F4 :Exec evince
@@ -45,14 +48,8 @@ Mod4 F4 :Exec evince
 # xchm
 Mod4 F5 :Exec kchmviewer
 
-# qtcreator
-Mod4 F6 :Exec qtcreator
-
-# wireshark
-Mod4 F7 :Exec wireshark
-
 # lock screen
-Mod4 Return :Exec vlock -a -n
+Mod4 l :Exec vlock -a -n
 
 # current window commands
 Shift Mod4 c :Close
