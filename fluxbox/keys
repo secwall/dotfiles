@@ -37,7 +37,7 @@ Mod4 Return :Exec sakura
 Mod4 F1 :Exec claws-mail
 
 # browser
-Mod4 F2 :Exec opera
+Mod4 F2 :Exec /home/secwall/.fluxbox/firefox.sh
 
 # qtcreator
 Mod4 F3 :Exec qtcreator
