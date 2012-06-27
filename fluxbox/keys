@@ -49,6 +49,7 @@ Mod4 F4 :Exec evince
 Mod4 F5 :Exec kchmviewer
 
 # tm shortcuts
+Shift Mod4 F1 :Exec /home/secwall/tm/bin/crl
 Shift Mod4 F3 :Exec /home/secwall/tm/bin/sal
 
 # lock screen
