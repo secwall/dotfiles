@@ -34,23 +34,20 @@ Mod4 Shift Tab :PrevTab
 Mod4 Return :Exec sakura
 
 # claws-mail 
-Mod4 F1 :Exec claws-mail
+Mod4 F1 :Exec qtcreator
 
 # browser
 Mod4 F2 :Exec /home/secwall/.fluxbox/firefox.sh
 
-# qtcreator
-Mod4 F3 :Exec qtcreator
-
 # evince
-Mod4 F4 :Exec evince
+Mod4 F3 :Exec evince
 
 # xchm
-Mod4 F5 :Exec kchmviewer
+Mod4 F4 :Exec kchmviewer
 
 # tm shortcuts
 Shift Mod4 F1 :Exec /home/secwall/tm/bin/crl
-Shift Mod4 F3 :Exec /home/secwall/tm/bin/sal
+Shift Mod4 F4 :Exec /home/secwall/tm/bin/sal
 
 # lock screen
 Mod4 l :Exec vlock -a -n
