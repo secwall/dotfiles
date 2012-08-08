@@ -9,7 +9,7 @@ export EDITOR="vim"
 if [[ ${EUID} == 0 ]] ; then
 PS1='\[\033[01;31m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
 else
-PS1='\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
+PS1='\[\033[01;31m\]\[\033[01;32m\]\u@\h\[\033[01;34m\] \W \$\[\033[00m\] '
 fi
 
 # Add history instead if overwite history file on exit
@@ -18,8 +18,8 @@ shopt -s histappend
 export HISTFILESIZE="16384"
 export HISTSIZE="16384"
 
+# rtorrent (don't load rc file)
+alias rtorrent='rtorrent -n'
 # TM's aliases
-alias arh='~/tm/bin/arh ~/tm/data/arh.db'
-alias fin='~/tm/bin/fin ~/tm/data/fin.db'
 alias nback='~/tm/bin/nback'
 alias pgen='~/tm/bin/pgen'

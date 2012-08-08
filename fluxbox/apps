@@ -13,11 +13,6 @@
     [Deco] {NONE}
 [end]
 
-[app] (claws-mail)
-    [Maximized] {Yes}
-    [Deco] {NONE}
-[end]
-
 [app] (kchmviewer)
     [Maximized] {Yes}
     [Deco] {NONE}
@@ -28,7 +23,7 @@
     [Deco] {NONE}
 [end]
 
-[app] (qtcreator)
+[app] (designer)
     [Maximized] {Yes}
     [Deco] {NONE}
 [end]
