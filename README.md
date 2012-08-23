@@ -16,10 +16,7 @@ vimrc - vim config I use on desktop
 inputrc - identical on desktop and servers
 
 
-conkyrc - conky config (on top panel of fluxbox)
-
-
-fluxbox - directory with fluxbox config files
+awesome - directory with awesome config files
 
 
 xinitrc - xinit config for desktop

@@ -6,5 +6,4 @@ do
     sleep 5
 done &
 
-conky &
-exec fluxbox
+exec awesome
