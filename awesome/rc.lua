@@ -77,7 +77,7 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "trm", "web", "dev", "doc", "im", "med", "msc0", "msc1", "msc2" }, s, layouts[1])
+    tags[s] = awful.tag({ "trm", "web", "dev", "doc", "im", "med", "msc0", "msc1", "msc2" }, s, {layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[1], layouts[1], layouts[1]})
 end
 -- }}}
 
@@ -106,7 +106,7 @@ mytextclock = awful.widget.textclock({ align = "right" })
 -- Create a systray
 mysystray = widget({ type = "systray" })
 
-require("vicious")
+local vicious = require("vicious")
 battext = widget({ type = "textbox", name = "battext" })
 
 function battery_status_text(widget, args)
