@@ -52,6 +52,8 @@ wireshark = "wireshark"
 tmcrl = "/home/secwall/tm/bin/crl"
 tmfin = "/home/secwall/tm/bin/fin"
 tmwtr = "/home/secwall/tm/bin/wtr"
+wtrtogg = "/home/secwall/tm/bin/wtr toggle"
+tmttr = "/home/secwall/tm/bin/ttr"
 tmarh = "/home/secwall/tm/bin/arh"
 tmsal = "/home/secwall/tm/bin/sal"
 
@@ -262,8 +264,10 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "F1", function () awful.util.spawn(tmcrl) end),
     awful.key({ modkey, "Shift"   }, "F2", function () awful.util.spawn(tmfin) end),
     awful.key({ modkey, "Shift"   }, "F3", function () awful.util.spawn(tmwtr) end),
-    awful.key({ modkey, "Shift"   }, "F4", function () awful.util.spawn(tmarh) end),
-    awful.key({ modkey, "Shift"   }, "F5", function () awful.util.spawn(tmsal) end),
+    awful.key({ modkey, "Shift"   }, "s", function () awful.util.spawn(wtrtogg) end),
+    awful.key({ modkey, "Shift"   }, "F4", function () awful.util.spawn(tmttr) end),
+    awful.key({ modkey, "Shift"   }, "F5", function () awful.util.spawn(tmarh) end),
+    awful.key({ modkey, "Shift"   }, "F6", function () awful.util.spawn(tmsal) end),
 
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(vlock) end),
 
