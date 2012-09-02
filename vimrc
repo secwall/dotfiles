@@ -34,3 +34,11 @@ set pastetoggle=<F2>
 
 set number
 syntax on
+
+filetype on
+filetype plugin on
+
+let ropevim_vim_completion = 1
+let ropevim_extended_complete = 1
+imap <c-space> <C-R>=RopeCodeAssistInsertMode()<CR>
+imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>

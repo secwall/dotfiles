@@ -37,13 +37,13 @@ end
 beautiful.init("/home/secwall/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "urxvt -bg \"black\" +sb -fg \"lightgrey\" -fn \"xft:Terminus:pixelsize=16\""
+terminal = "sakura"
 editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 mailcli = "claws-mail"
 browser = "/home/secwall/.config/awesome/firefox.sh"
-pdfv = "evince"
+pdfv = "apvlv"
 chmv = "kchmviewer"
 player = "vlc"
 vbox = "VirtualBox"
@@ -376,7 +376,7 @@ awful.rules.rules = {
       properties = { tag = tags[1][5] } },
     { rule = { class = "Firefox" },
       properties = { tag = tags[1][2] } },
-    { rule = { class = "Evince" },
+    { rule = { class = "Apvlv" },
       properties = { tag = tags[1][4] } },
     { rule = { class = "Kchmviewer" },
       properties = { tag = tags[1][4] } },
