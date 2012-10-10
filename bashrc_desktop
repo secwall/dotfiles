@@ -20,6 +20,8 @@ export HISTSIZE="16384"
 
 # rtorrent (don't load rc file)
 alias rtorrent='rtorrent -n'
+alias zf='zathura --fork'
+
 # TM's aliases
 alias nback='~/tm/bin/nback'
 alias pgen='~/tm/bin/pgen'

@@ -42,8 +42,8 @@ editor = os.getenv("EDITOR") or "nano"
 editor_cmd = terminal .. " -e " .. editor
 
 mailcli = "claws-mail"
-browser = "/home/secwall/.config/awesome/firefox.sh"
-pdfv = "apvlv"
+browser = "chromium --incognito"
+devedit = "gvim"
 chmv = "kchmviewer"
 player = "vlc"
 vbox = "VirtualBox"
@@ -255,7 +255,7 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "F1", function () awful.util.spawn(mailcli) end),
     awful.key({ modkey,           }, "F2", function () awful.util.spawn(browser) end),
-    awful.key({ modkey,           }, "F3", function () awful.util.spawn(pdfv) end),
+    awful.key({ modkey,           }, "F3", function () awful.util.spawn(devedit) end),
     awful.key({ modkey,           }, "F4", function () awful.util.spawn(chmv) end),
     awful.key({ modkey,           }, "F5", function () awful.util.spawn(player) end),
     awful.key({ modkey,           }, "F6", function () awful.util.spawn(vbox) end),
@@ -374,9 +374,11 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "Claws-mail" },
       properties = { tag = tags[1][5] } },
-    { rule = { class = "Firefox" },
+    { rule = { class = "Chromium" },
       properties = { tag = tags[1][2] } },
-    { rule = { class = "Apvlv" },
+    { rule = { class = "Gvim" },
+      properties = { tag = tags[1][3] } },
+    { rule = { class = "Zathura" },
       properties = { tag = tags[1][4] } },
     { rule = { class = "Kchmviewer" },
       properties = { tag = tags[1][4] } },

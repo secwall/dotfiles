@@ -27,7 +27,19 @@ set ignorecase
 set listchars=tab:··
 set list
 
-colorscheme evening
+if has("gui_running")
+    colorscheme grb256
+
+    set guioptions-=T
+    set guioptions-=m
+    set guioptions-=l
+    set guioptions-=r
+    set guioptions-=b
+
+    set guifont=Monospace\ 10
+else
+    colorscheme evening
+endif
 set colorcolumn=80
 
 set pastetoggle=<F2>
@@ -37,8 +49,3 @@ syntax on
 
 filetype on
 filetype plugin on
-
-let ropevim_vim_completion = 1
-let ropevim_extended_complete = 1
-imap <c-space> <C-R>=RopeCodeAssistInsertMode()<CR>
-imap <Nul> <C-R>=RopeCodeAssistInsertMode()<CR>
