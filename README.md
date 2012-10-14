@@ -4,16 +4,13 @@ dotfiles
 Some config files (e.g. bash, vim, etc)
 
 
-bashrc_desktop - bash config I use on desctop
+zshrc_desktop - zsh config I use on desktop
 
 
-bashrc_servers - bash config I use on servers (initial)
+zshrc_servers - zsh config I use on servers (initial)
 
 
 vimrc - vim config I use on desktop
-
-
-inputrc - identical on desktop and servers
 
 
 awesome - directory with awesome config files
