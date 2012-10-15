@@ -38,11 +38,11 @@ beautiful.init("/home/secwall/.config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "sakura"
-editor = os.getenv("EDITOR") or "nano"
+editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 mailcli = "claws-mail"
-browser = "chromium --incognito"
+browser = "chromium --incognito /home/secwall/tm/data/nosurf.html"
 devedit = "gvim"
 chmv = "kchmviewer"
 player = "vlc"
@@ -51,7 +51,7 @@ wireshark = "wireshark"
 
 tmcrl = "/home/secwall/tm/bin/crl"
 tmfin = "/home/secwall/tm/bin/fin"
-tmwtr = "/home/secwall/tm/bin/wtr"
+tmwtr = "/home/secwall/tm/bin/wtr /home/secwall/.wtr/cur_stat"
 wtrtogg = "/home/secwall/tm/bin/wtr toggle"
 tmttr = "/home/secwall/tm/bin/ttr"
 tmarh = "/home/secwall/tm/bin/arh"
@@ -110,6 +110,7 @@ mysystray = widget({ type = "systray" })
 
 local vicious = require("vicious")
 battext = widget({ type = "textbox", name = "battext" })
+wtrtext = widget({ type = "textbox", name = "wtrtext" })
 
 function battery_status_text(widget, args)
     local perc = args[2]
@@ -121,6 +122,18 @@ function battery_status_text(widget, args)
     end
         return '<span color="#8EAE6E">' .. perc .. '%</span> '
 end
+
+function wtr_status_text()
+    local io = io
+
+    local fstat = io.open("/home/secwall/.wtr/cur_stat");
+
+    wtrtext.text = fstat:read()
+end
+
+wtrtimer = timer({ timeout = 300 })
+wtrtimer:add_signal("timeout", wtr_status_text)
+wtrtimer:start()
 
 vicious.register(battext, vicious.widgets.bat, battery_status_text, 120, "BAT0")
 
@@ -201,6 +214,7 @@ for s = 1, screen.count() do
         mylayoutbox[s],
         battext,
         mytextclock,
+        wtrtext,
         s == 1 and mysystray or nil,
         mytasklist[s],
         layout = awful.widget.layout.horizontal.rightleft
