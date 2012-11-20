@@ -42,9 +42,10 @@ editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 
 mailcli = "claws-mail"
-browser = "chromium --incognito /home/secwall/tm/data/nosurf.html"
+browser = "/home/secwall/.config/awesome/firefox.sh"
 devedit = "gvim"
 chmv = "kchmviewer"
+imcli = "psi"
 player = "vlc"
 vbox = "VirtualBox"
 wireshark = "wireshark"
@@ -55,6 +56,7 @@ tmwtr = "/home/secwall/tm/bin/wtr /home/secwall/.wtr/cur_stat"
 wtrtogg = "/home/secwall/tm/bin/wtr toggle"
 tmttr = "/home/secwall/tm/bin/ttr"
 tmarh = "/home/secwall/tm/bin/arh"
+tmnback = "/home/secwall/tm/bin/nback"
 tmsal = "/home/secwall/tm/bin/sal"
 
 vlock = "vlock -a -n"
@@ -79,7 +81,19 @@ layouts =
 tags = {}
 for s = 1, screen.count() do
     -- Each screen has its own tag table.
-    tags[s] = awful.tag({ "trm", "web", "dev", "doc", "im", "med", "msc0", "msc1", "msc2" }, s, {layouts[1], layouts[2], layouts[1], layouts[2], layouts[2], layouts[2], layouts[1], layouts[1], layouts[1]})
+    tags[s] = awful.tag({ "trm", "web", "dev", "doc", "im", "med", "msc0", "msc1", "msc2" }, s, {layouts[1], layouts[2], layouts[2], layouts[2], layouts[2], layouts[2], layouts[1], layouts[2], layouts[1]})
+end
+-- }}}
+
+-- {{{ Tag Wallpapers
+for s = 1, screen.count() do
+    for t = 1, 9 do
+        tags[s][t]:add_signal("property::selected", function (tag)
+            if not tag.selected then return end
+            wallpaper_cmd = "awsetbg /home/secwall/.config/awesome/bg/" .. t .. ".jpg"
+            awful.util.spawn(wallpaper_cmd)
+        end)
+    end
 end
 -- }}}
 
@@ -131,7 +145,7 @@ function wtr_status_text()
     wtrtext.text = fstat:read()
 end
 
-wtrtimer = timer({ timeout = 300 })
+wtrtimer = timer({ timeout = 30 })
 wtrtimer:add_signal("timeout", wtr_status_text)
 wtrtimer:start()
 
@@ -267,13 +281,14 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Control" }, "r", awesome.restart),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit),
 
-    awful.key({ modkey,           }, "F1", function () awful.util.spawn(mailcli) end),
+    awful.key({ modkey,           }, "F1", function () awful.util.spawn(devedit) end),
     awful.key({ modkey,           }, "F2", function () awful.util.spawn(browser) end),
-    awful.key({ modkey,           }, "F3", function () awful.util.spawn(devedit) end),
-    awful.key({ modkey,           }, "F4", function () awful.util.spawn(chmv) end),
-    awful.key({ modkey,           }, "F5", function () awful.util.spawn(player) end),
-    awful.key({ modkey,           }, "F6", function () awful.util.spawn(vbox) end),
-    awful.key({ modkey,           }, "F7", function () awful.util.spawn(wireshark) end),
+    awful.key({ modkey,           }, "F3", function () awful.util.spawn(chmv) end),
+    awful.key({ modkey,           }, "F4", function () awful.util.spawn(mailcli) end),
+    awful.key({ modkey,           }, "F5", function () awful.util.spawn(imcli) end),
+    awful.key({ modkey,           }, "F6", function () awful.util.spawn(player) end),
+    awful.key({ modkey,           }, "F7", function () awful.util.spawn(vbox) end),
+    awful.key({ modkey,           }, "F8", function () awful.util.spawn(wireshark) end),
 
     awful.key({ modkey, "Shift"   }, "F1", function () awful.util.spawn(tmcrl) end),
     awful.key({ modkey, "Shift"   }, "F2", function () awful.util.spawn(tmfin) end),
@@ -281,7 +296,8 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "s", function () awful.util.spawn(wtrtogg) end),
     awful.key({ modkey, "Shift"   }, "F4", function () awful.util.spawn(tmttr) end),
     awful.key({ modkey, "Shift"   }, "F5", function () awful.util.spawn(tmarh) end),
-    awful.key({ modkey, "Shift"   }, "F6", function () awful.util.spawn(tmsal) end),
+    awful.key({ modkey, "Shift"   }, "F6", function () awful.util.spawn(tmnback) end),
+    awful.key({ modkey, "Shift"   }, "F7", function () awful.util.spawn(tmsal) end),
 
     awful.key({ modkey, "Shift"   }, "Return", function () awful.util.spawn(vlock) end),
 
@@ -388,7 +404,7 @@ awful.rules.rules = {
                      buttons = clientbuttons } },
     { rule = { class = "Claws-mail" },
       properties = { tag = tags[1][5] } },
-    { rule = { class = "Chromium" },
+    { rule = { class = "Firefox" },
       properties = { tag = tags[1][2] } },
     { rule = { class = "Gvim" },
       properties = { tag = tags[1][3] } },
@@ -396,6 +412,8 @@ awful.rules.rules = {
       properties = { tag = tags[1][4] } },
     { rule = { class = "Kchmviewer" },
       properties = { tag = tags[1][4] } },
+    { rule = { class = "psi" },
+      properties = { tag = tags[1][5] } },
     { rule = { class = "Vlc" },
       properties = { tag = tags[1][6] } },
 }
