@@ -6,4 +6,5 @@ do
     sleep 5
 done &
 
+eval $(gpg-agent --daemon)
 exec awesome
