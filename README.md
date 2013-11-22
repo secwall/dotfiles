@@ -7,13 +7,13 @@ Some config files (e.g. bash, vim, etc)
 zshrc_desktop - zsh config I use on desktop
 
 
-zshrc_servers - zsh config I use on servers (initial)
+zshrc_servers - zsh config I use on servers
 
 
-vimrc - vim config I use on desktop
+vimrc - vim config I use on desktop and servers
 
 
-awesome - directory with awesome config files
+tmux_servers - tmux config I use on servers
 
 
-xinitrc - xinit config for desktop
+tmux_desktop - tmux config I use on desktop
