@@ -62,13 +62,25 @@ min-dotf-install () {
 
 compdef min-dotf-install=ssh
 
+ssh-copy-id () {
+    for H
+    do
+        cat ~/.ssh/id_rsa.pub | ssh $H "mkdir -p .ssh; chmod 700 .ssh; cat >> .ssh/authorized_keys; chmod 600 .ssh/authorized_keys"
+    done
+}
+
+compdef ssh-copy-id=ssh
+
 # MPlayerX alias for console usage
 alias 'mplayer'='/Applications/MPlayerX.app/Contents/MacOS/MPlayerX'
 
 # pypy alias
-alias 'pypy'='/usr/local/Cellar/pypy/2.2.0/libexec/bin/pypy'
+alias 'pypy'='/usr/local/Cellar/pypy/2.2.1/libexec/bin/pypy'
 
 # rebar alias
 alias 'rebar'='~/Documents/dev/utils/rebar'
+
+# rbenv setup
+eval "$(rbenv init -)"
 
 [[ -z "$TMUX" ]] && [[ "$TERM_SESSION_ID" != "" ]] && ( tmux -f ~/.tmux.mac attach -t `echo $TERM_SESSION_ID | cut -d- -f1` || tmux -f ~/.tmux.mac new -s `echo $TERM_SESSION_ID | cut -d- -f1` )
