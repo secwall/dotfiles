@@ -18,7 +18,7 @@ bindkey '^[[B'  down-line-or-search
 export EDITOR=vim
 
 # Customize to your needs...
-export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin
+export PATH=/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:`go env GOROOT`/bin
 
 # Start/attach to tmux on remote host
 ssht () {
@@ -82,5 +82,11 @@ alias 'rebar'='~/Documents/dev/utils/rebar'
 
 # rbenv setup
 eval "$(rbenv init -)"
+
+# show all packages without deps (homebrew)
+alias 'brew-world'='for i in `brew list`; do USES=`brew uses --installed $i`; if [ "$USES" = "" ]; then echo $i; fi; done'
+
+# set GOPATH
+export GOPATH='/Users/secwall/Documents/dev/utils/go'
 
 [[ -z "$TMUX" ]] && [[ "$TERM_SESSION_ID" != "" ]] && ( tmux -f ~/.tmux.mac attach -t `echo $TERM_SESSION_ID | cut -d- -f1` || tmux -f ~/.tmux.mac new -s `echo $TERM_SESSION_ID | cut -d- -f1` )

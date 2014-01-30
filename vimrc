@@ -25,6 +25,7 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 Bundle 'jimenezrick/vimerl'
+Bundle 'jnwhiteh/vim-golang'
 
 filetype plugin indent on
 
