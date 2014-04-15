@@ -4,7 +4,10 @@ function box_name {
 }
 
 # Git info.
-local git_info='$(git_prompt_info)'
+if which git >/dev/null
+then
+    local git_info='$(git_prompt_info)'
+fi
 ZSH_THEME_GIT_PROMPT_PREFIX=" %{$fg[white]%}on%{$reset_color%} git:%{$fg[cyan]%}"
 ZSH_THEME_GIT_PROMPT_SUFFIX="%{$reset_color%}"
 ZSH_THEME_GIT_PROMPT_DIRTY=" %{$fg[red]%}x"
