@@ -18,11 +18,14 @@ bindkey '^[[B'  down-line-or-search
 export EDITOR=vim
 
 # Customize to your needs...
-export PATH=$HOME/.cabal/bin:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+export PATH=$HOME/Documents/dev/utils:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
 # Pyenv setup
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
+
+# Erlang setup
+source ~/.kerl/deployed/17.0/activate
 
 # Start/attach to tmux on remote host
 ssht () {
@@ -61,10 +64,7 @@ compdef ssh-copy-id=ssh
 alias 'mplayer'='/Applications/MPlayerX.app/Contents/MacOS/MPlayerX'
 
 # pypy alias
-alias 'pypy'='/usr/local/Cellar/pypy/2.2.1/libexec/bin/pypy'
-
-# rebar alias
-alias 'rebar'='~/Documents/dev/utils/rebar'
+alias 'pypy'='/usr/local/Cellar/pypy/2.3.1/libexec/bin/pypy'
 
 # rbenv setup
 eval "$(rbenv init -)"
