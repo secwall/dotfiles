@@ -14,11 +14,9 @@ Bundle 'gmarik/vundle'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'ervandew/supertab'
 Bundle 'scrooloose/nerdcommenter'
-Bundle 'scrooloose/nerdtree'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nvie/vim-flake8'
-Bundle 'derekwyatt/vim-scala'
 Bundle 'wlangstroth/vim-haskell'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
@@ -59,12 +57,14 @@ if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
     let g:solarized_termcolors=256
 endif
 
-if isdirectory(expand("~/.vim/bundle/nerdtree"))
-    autocmd vimenter * if !argc() | NERDTree | endif
+if isdirectory(expand("~/.vim/bundle/supertab"))
+    let g:SuperTabDefaultCompletionType = "context"
+    let g:SuperTabContextDefaultCompletionType = "<c-p>"
 endif
 
 if isdirectory(expand("~/.vim/bundle/vimerl"))
     let g:erlangManPath="/usr/local/opt/erlang/lib/erlang/man"
+    autocmd BufNewFile,BufRead *.erl let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 endif
 
 set colorcolumn=80

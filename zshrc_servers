@@ -1,3 +1,9 @@
+function lt() { ls -ltrsa "$@" | tail; }
+function psgrep() { ps aux | grep -v grep | grep "$@" -i --color=auto; }
+function fname() { find . -iname "*$@*"; }
+function remove_lines_from() { grep -F -x -v -f $2 $1; }
+alias pp="ps aux | less"
+
 if [ -f $HOME/.zshrc.mac ]
 then
     source $HOME/.zshrc.mac
