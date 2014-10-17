@@ -1,4 +1,4 @@
-ulimit -n 4096
+ulimit -n 16384
 
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="secwall"
@@ -23,9 +23,6 @@ export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 
 # Pyenv setup
 if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
-
-# Erlang setup
-source ~/.kerl/deployed/17.0/activate
 
 # Start/attach to tmux on remote host
 ssht () {
@@ -60,15 +57,6 @@ ssh-copy-id () {
 
 compdef ssh-copy-id=ssh
 
-# MPlayerX alias for console usage
-alias 'mplayer'='/Applications/MPlayerX.app/Contents/MacOS/MPlayerX'
-
-# pypy alias
-alias 'pypy'='/usr/local/Cellar/pypy/2.3.1/libexec/bin/pypy'
-
-# rbenv setup
-eval "$(rbenv init -)"
-
 # gpg-agent setup
 if test -f $HOME/.gpg-agent-info && kill -0 `cut -d: -f 2 $HOME/.gpg-agent-info` 2>/dev/null; then
     GPG_AGENT_INFO=`cat $HOME/.gpg-agent-info`
@@ -78,5 +66,32 @@ else
     echo $GPG_AGENT_INFO >$HOME/.gpg-agent-info
 fi
 
+# MPlayerX alias for console usage
+alias 'mplayer'='/Applications/MPlayerX.app/Contents/MacOS/MPlayerX'
+
+# pypy alias
+alias 'pypy'='/usr/local/Cellar/pypy/2.4.0_1/libexec/bin/pypy'
+
+# rbenv setup
+eval "$(rbenv init -)"
+
 # show all packages without deps (homebrew)
 alias 'brew-world'='for i in `brew list`; do USES=`brew uses --installed $i`; if [ "$USES" = "" ]; then echo $i; fi; done'
+
+brew-dep-rm () {
+    if [[ "$1" != "" ]]
+    then
+        TMP_FNAME="/tmp/$0_$RANDOM.list"
+        for i in $*
+        do
+            brew-world | grep -v $i > $TMP_FNAME
+            brew rm $i
+            CUR_DEPS="`brew-world | grep -v -f $TMP_FNAME`"
+            while [[ "$CUR_DEPS" != "" ]]
+            do
+                brew-dep-rm $CUR_DEPS
+            done
+        done
+        rm -f "$TMP_FNAME"
+    fi
+}
