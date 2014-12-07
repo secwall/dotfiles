@@ -17,12 +17,10 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'altercation/vim-colors-solarized'
 Bundle 'Lokaltog/vim-powerline'
 Bundle 'nvie/vim-flake8'
-Bundle 'wlangstroth/vim-haskell'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'tomtom/tlib_vim'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
-Bundle 'jimenezrick/vimerl'
 
 filetype plugin indent on
 
@@ -60,11 +58,6 @@ endif
 if isdirectory(expand("~/.vim/bundle/supertab"))
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-p>"
-endif
-
-if isdirectory(expand("~/.vim/bundle/vimerl"))
-    let g:erlangManPath="/usr/local/opt/erlang/lib/erlang/man"
-    autocmd BufNewFile,BufRead *.erl let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 endif
 
 set colorcolumn=80
