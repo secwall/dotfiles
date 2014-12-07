@@ -70,13 +70,18 @@ fi
 alias 'mplayer'='/Applications/MPlayerX.app/Contents/MacOS/MPlayerX'
 
 # pypy alias
-alias 'pypy'='/usr/local/Cellar/pypy/2.4.0_1/libexec/bin/pypy'
+alias 'pypy'='/usr/local/Cellar/pypy/2.4.0_2/libexec/bin/pypy'
 
 # rbenv setup
 eval "$(rbenv init -)"
 
 # show all packages without deps (homebrew)
 alias 'brew-world'='for i in `brew list`; do USES=`brew uses --installed $i`; if [ "$USES" = "" ]; then echo $i; fi; done'
+
+# ~/.known-hosts support
+if [[ -f ~/.known-hosts ]]; then
+    zstyle ':completion:*' hosts $(awk '/^[-.a-z0-9]+$/ { print $1 }' ~/.known-hosts)
+fi
 
 brew-dep-rm () {
     if [[ "$1" != "" ]]
