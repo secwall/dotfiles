@@ -8,19 +8,22 @@ set nocompatible
 filetype off
 
 set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+call vundle#begin()
 
-Bundle 'gmarik/vundle'
-Bundle 'davidhalter/jedi-vim'
-Bundle 'ervandew/supertab'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Lokaltog/vim-powerline'
-Bundle 'nvie/vim-flake8'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+Plugin 'gmarik/vundle'
+Plugin 'davidhalter/jedi-vim'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'Lokaltog/vim-powerline'
+Plugin 'nvie/vim-flake8'
+Plugin 'sirver/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'scrooloose/syntastic'
+Plugin 'wting/rust.vim'
+Plugin 'phildawes/racer'
+
+call vundle#end()
 
 filetype plugin indent on
 
@@ -58,6 +61,13 @@ endif
 if isdirectory(expand("~/.vim/bundle/supertab"))
     let g:SuperTabDefaultCompletionType = "context"
     let g:SuperTabContextDefaultCompletionType = "<c-p>"
+endif
+
+if isdirectory(expand("~/.vim/bundle/racer"))
+    set hidden
+    let g:racer_cmd = "/Users/secwall/Documents/dev/utils/racer"
+    let $RUST_SRC_PATH="/Users/secwall/Documents/dev/repos/rust/src/"
+    autocmd FileType rust let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
 endif
 
 set colorcolumn=80
