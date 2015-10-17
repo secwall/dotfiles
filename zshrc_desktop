@@ -18,6 +18,7 @@ bindkey '^[[B'  down-line-or-search
 export EDITOR=vim
 
 # Customize to your needs...
+export GOPATH=$HOME/.go
 export PATH=$HOME/Documents/dev/utils:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin:$GOPATH/bin
 export PYTHONPATH=/usr/local/lib/python2.7/site-packages:$PYTHONPATH
 

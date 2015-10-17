@@ -12,7 +12,6 @@ call vundle#begin()
 
 Plugin 'gmarik/vundle'
 Plugin 'davidhalter/jedi-vim'
-Plugin 'ervandew/supertab'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'Lokaltog/vim-powerline'
@@ -20,8 +19,11 @@ Plugin 'nvie/vim-flake8'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'scrooloose/syntastic'
-Plugin 'wting/rust.vim'
-Plugin 'phildawes/racer'
+Plugin 'fatih/vim-go'
+Plugin 'mattn/emmet-vim'
+Plugin 'pangloss/vim-javascript'
+Plugin 'marijnh/tern_for_vim'
+Plugin 'Valloric/YouCompleteMe'
 
 call vundle#end()
 
@@ -58,16 +60,11 @@ if isdirectory(expand("~/.vim/bundle/vim-colors-solarized"))
     let g:solarized_termcolors=256
 endif
 
-if isdirectory(expand("~/.vim/bundle/supertab"))
-    let g:SuperTabDefaultCompletionType = "context"
-    let g:SuperTabContextDefaultCompletionType = "<c-p>"
-endif
-
-if isdirectory(expand("~/.vim/bundle/racer"))
-    set hidden
-    let g:racer_cmd = "/Users/secwall/Documents/dev/utils/racer"
-    let $RUST_SRC_PATH="/Users/secwall/Documents/dev/repos/rust/src/"
-    autocmd FileType rust let g:SuperTabDefaultCompletionType = "<c-x><c-o>"
+if isdirectory(expand("~/.vim/bundle/YouCompleteMe"))
+    let g:UltiSnipsExpandTrigger = "<tab>"
+    let g:ycm_path_to_python_interpreter = '/usr/bin/python'
+    let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+    let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 endif
 
 set colorcolumn=80
