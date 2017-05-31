@@ -15,7 +15,7 @@ fpath=(/usr/local/share/zsh-completions $fpath)
 bindkey '^[[A'  up-line-or-search
 bindkey '^[[B'  down-line-or-search
 
-export EDITOR=vim
+export EDITOR=/usr/local/bin/vim
 
 # Customize to your needs...
 export PATH=$HOME/Documents/dev/utils:/Developer/NVIDIA/CUDA-8.0/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
@@ -95,5 +95,8 @@ brew-dep-rm () {
 brew-up () {
     brew update && brew upgrade && brew cleanup -s --force
 }
+
+alias 'vsc'='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
+alias 'vim'='echo "Use vsc, Luke!"'
 
 compinit

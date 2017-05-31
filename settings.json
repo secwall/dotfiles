@@ -1,0 +1,13 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "python.promptToInstallJupyter": false,
+    "python.linting.flake8Enabled": true,
+    "python.pythonPath": "/Users/secwall/.pyenv/shims/python",
+    "editor.minimap.enabled": true,
+    "vim.disableAnnoyingNeovimMessage": true,
+    "go.lintTool": "gometalinter",
+    "go.useLanguageServer": true,
+    "go.gopath": "/Users/secwall/.go/1.8.0",
+    "go.goroot": "/Users/secwall/.goenv/versions/1.8.0"
+}
