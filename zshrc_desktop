@@ -18,7 +18,7 @@ bindkey '^[[B'  down-line-or-search
 export EDITOR=/usr/local/bin/vim
 
 # Customize to your needs...
-export PATH=$HOME/Documents/dev/utils:/Developer/NVIDIA/CUDA-8.0/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+export PATH=$HOME/Documents/dev/utils:/Developer/NVIDIA/CUDA-9.0/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 
 # Pyenv setup
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
@@ -35,6 +35,7 @@ then
     eval "$(goenv init -)"
     source /usr/local/opt/goenv/completions/goenv.zsh
     export GOPATH=$HOME/.go/$(goenv version | awk '{print $1};')
+    export GOROOT=$HOME/.goenv/versions/$(goenv version | awk '{print $1};')
     export PATH=$GOPATH/bin:$PATH
 fi
 
@@ -42,7 +43,7 @@ fi
 ssht () {
     if [[ "$2" == "" ]]
     then
-        ssh -A "$1" -t 'if type zsh > /dev/null; then export SHELL=/bin/zsh; fi; tmux attach -t secwall || tmux new -s secwall || $SHELL'
+        ssh -A "$1" -t 'tmux attach -t secwall || tmux new -s secwall || /bin/bash'
     else
         ssh $*
     fi
@@ -98,5 +99,15 @@ brew-up () {
 
 alias 'vsc'='/Applications/Visual\ Studio\ Code.app/Contents/MacOS/Electron'
 alias 'vim'='echo "Use vsc, Luke!"'
+
+# Setup new golang version
+goenv-setup () {
+    go get -u github.com/golang/dep/cmd/dep
+    go get -u github.com/derekparker/delve/cmd/dlv
+    ln -sf /Users/secwall/Documents/dev/repos $GOPATH/src/github.com/secwall
+}
+
+# enable fzf
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 compinit
