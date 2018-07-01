@@ -10,10 +10,13 @@ zshrc_desktop - zsh config I use on desktop
 zshrc_servers - zsh config I use on servers
 
 
-vimrc - vim config I use on desktop and servers
+vimrc_desktop - vim config I use on desktop
+
+
+vimrc_servers - vim config I use on servers
 
 
 tmux_servers - tmux config I use on servers
 
 
-tmux_desktop - tmux config I use on desktop
+gitconfig - gitconfig I use on desktop and servers

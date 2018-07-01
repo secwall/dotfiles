@@ -1,0 +1,65 @@
+set tabstop=4
+set shiftwidth=4
+set smarttab
+set expandtab
+
+" Vundle setup
+set nocompatible
+filetype off
+
+call plug#begin('~/.vim/plugged')
+
+Plug '/usr/local/opt/fzf'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-airline/vim-airline'
+Plug 'joshdick/onedark.vim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'davidhalter/jedi-vim'
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'zchee/deoplete-jedi'
+Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
+Plug 'SirVer/ultisnips'
+Plug 'jodosha/vim-godebug'
+Plug 'w0rp/ale'
+
+call plug#end()
+
+filetype plugin indent on
+
+let g:deoplete#enable_at_startup = 1
+let g:ale_lint_on_text_changed = 'never'
+
+set wrap
+set showbreak=\ \ \ \ \ \ >
+hi NonText guifg=#0030ff ctermfg=green
+
+set ai
+set cin
+
+set backspace=2
+set wrapmargin=5
+
+set laststatus=2
+
+set foldenable
+set foldmethod=indent
+
+set showmatch
+set hlsearch
+set incsearch
+set ignorecase
+
+set listchars=tab:..
+set list
+
+set background=dark
+colorscheme onedark
+set t_Co=256
+
+set colorcolumn=80
+
+set pastetoggle=<F2>
+
+set number
+syntax on
