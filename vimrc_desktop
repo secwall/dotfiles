@@ -21,6 +21,7 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 Plug 'sebastianmarkow/deoplete-rust'
+Plug 'zchee/deoplete-clang'
 Plug 'SirVer/ultisnips'
 Plug 'jodosha/vim-godebug'
 Plug 'w0rp/ale'
@@ -33,12 +34,16 @@ let g:deoplete#enable_at_startup = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:deoplete#sources#rust#racer_binary = '/Users/secwall/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '/Users/secwall/Documents/dev/repos/rust/src'
+let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
+let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang'
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
-\   'go': ['remove_trailing_lines', 'trim_whitespace', 'goimports', 'gofmt'],
-\   'rust': ['remove_trailing_lines', 'trim_whitespace', 'rustfmt'],
-\   'python': ['remove_trailing_lines', 'trim_whitespace', 'isort', 'yapf'],
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'go': ['goimports', 'gofmt'],
+\   'rust': ['rustfmt'],
+\   'python': ['isort', 'yapf'],
+\   'cpp': ['clang-format'],
 \}
 
 set wrap
