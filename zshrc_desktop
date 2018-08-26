@@ -97,7 +97,7 @@ brew-dep-rm () {
 }
 
 brew-up () {
-    brew update && brew upgrade && brew cleanup -s --force
+    brew update && brew upgrade && brew cleanup -s
 }
 
 alias 'vim'='nvim'
