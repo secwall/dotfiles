@@ -33,14 +33,9 @@ then
     export PATH=$PATH:$HOME/.pyenv/versions/$PYTHON_FULL_VERSION/Python.framework/Versions/$PYTHON_SHORT_VERSION/bin
 fi
 
-if which goenv > /dev/null
-then
-    eval "$(goenv init -)"
-    source /usr/local/opt/goenv/completions/goenv.zsh
-    export GOPATH=$HOME/.go
-    export GOROOT=$HOME/.goenv/versions/$(goenv version | awk '{print $1};')
-    export PATH=$GOPATH/bin:$PATH
-fi
+export CGO_CFLAGS_ALLOW='-objcmt-migrate-all'
+export GOPATH=$HOME/.go
+export PATH=$GOPATH/bin:$PATH
 
 # Start/attach to tmux on remote host
 ssht () {

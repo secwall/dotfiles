@@ -21,7 +21,8 @@ Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
 Plug 'sebastianmarkow/deoplete-rust'
-Plug 'zchee/deoplete-clang'
+Plug 'Shougo/deoplete-clangx'
+Plug 'Shougo/neoinclude.vim'
 Plug 'SirVer/ultisnips'
 Plug 'jodosha/vim-godebug'
 Plug 'w0rp/ale'
@@ -32,10 +33,13 @@ filetype plugin indent on
 
 let g:deoplete#enable_at_startup = 1
 let g:ale_lint_on_text_changed = 'never'
+
 let g:deoplete#sources#rust#racer_binary = '/Users/secwall/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '/Users/secwall/Documents/dev/repos/rust/src'
-let g:deoplete#sources#clang#libclang_path = '/usr/local/opt/llvm/lib/libclang.dylib'
-let g:deoplete#sources#clang#clang_header = '/usr/local/opt/llvm/lib/clang'
+
+call deoplete#custom#var('clangx', 'clang_binary', '/Users/secwall/Documents/dev/utils/clang')
+call deoplete#custom#var('clangx', 'default_c_options', '--std=c11')
+call deoplete#custom#var('clangx', 'default_cpp_options', '--std=c++17 -lstdc++')
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
