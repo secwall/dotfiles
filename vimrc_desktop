@@ -37,7 +37,7 @@ let g:ale_lint_on_text_changed = 'never'
 let g:deoplete#sources#rust#racer_binary = '/Users/secwall/.cargo/bin/racer'
 let g:deoplete#sources#rust#rust_source_path = '/Users/secwall/Documents/dev/repos/rust/src'
 
-call deoplete#custom#var('clangx', 'clang_binary', '/Users/secwall/Documents/dev/utils/clang')
+call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
 call deoplete#custom#var('clangx', 'default_c_options', '--std=c11')
 call deoplete#custom#var('clangx', 'default_cpp_options', '--std=c++17 -lstdc++')
 
