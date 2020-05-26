@@ -18,7 +18,7 @@ bindkey '^[[B'  down-line-or-search
 export EDITOR=/usr/local/bin/nvim
 
 # Customize to your needs...
-export PATH=$HOME/Documents/dev/utils:/Developer/NVIDIA/CUDA-9.0/bin:$HOME/.cargo/bin:/usr/local/opt/llvm/bin:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+export PATH=$HOME/Documents/dev/utils:/Developer/NVIDIA/CUDA-9.0/bin:$HOME/.cargo/bin:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
 
 # Racer setup
 export RUST_SRC_PATH="/Users/secwall/Documents/dev/repos/rust/src"
