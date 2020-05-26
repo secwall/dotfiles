@@ -26,6 +26,8 @@ Plug 'Shougo/neoinclude.vim'
 Plug 'SirVer/ultisnips'
 Plug 'jodosha/vim-godebug'
 Plug 'w0rp/ale'
+Plug 'LucHermitte/lh-vim-lib'
+Plug 'LucHermitte/local_vimrc'
 
 call plug#end()
 
@@ -49,6 +51,8 @@ let g:ale_fixers = {
 \   'python': ['isort', 'yapf'],
 \   'cpp': ['clang-format'],
 \}
+
+call lh#local_vimrc#munge('whitelist', $HOME.'/Documents/dev')
 
 set wrap
 set showbreak=\ \ \ \ \ \ >
