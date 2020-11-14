@@ -14,13 +14,11 @@ Plug 'sheerun/vim-polyglot'
 Plug 'vim-airline/vim-airline'
 Plug 'joshdick/onedark.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'rust-lang/rust.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'zchee/deoplete-jedi'
 Plug 'zchee/deoplete-go', {'build': {'unix': 'make'}}
-Plug 'sebastianmarkow/deoplete-rust'
 Plug 'Shougo/deoplete-clangx'
 Plug 'Shougo/neoinclude.vim'
 Plug 'SirVer/ultisnips'
@@ -37,26 +35,22 @@ let g:deoplete#enable_at_startup = 1
 let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 
-let g:deoplete#sources#rust#racer_binary = '/Users/secwall/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path = '/Users/secwall/Documents/dev/repos/rust/src'
+let g:ale_c_clang_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk'
+let g:ale_c_clangtidy_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk'
+let g:ale_c_gcc_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk'
 
-let g:ale_c_clang_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk'
-let g:ale_c_clangtidy_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk'
-let g:ale_c_gcc_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk'
-
-let g:ale_cpp_clang_options = '--std=c++17 -lstdc++ -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk'
-let g:ale_cpp_clangtidy_options = '--std=c++17 -lstdc++ -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk'
-let g:ale_cpp_gcc_options = '--std=c++17 -lstdc++ -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk'
+let g:ale_cpp_clang_options = '--std=c++17 -lstdc++ -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk'
+let g:ale_cpp_clangtidy_options = '--std=c++17 -lstdc++ -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk'
+let g:ale_cpp_gcc_options = '--std=c++17 -lstdc++ -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk'
 
 call deoplete#custom#var('clangx', 'clang_binary', '/usr/bin/clang')
-call deoplete#custom#var('clangx', 'default_c_options', '--std=c11 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk')
-call deoplete#custom#var('clangx', 'default_cpp_options', '--std=c++17 -lstdc++ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk')
+call deoplete#custom#var('clangx', 'default_c_options', '--std=c11 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk')
+call deoplete#custom#var('clangx', 'default_cpp_options', '--std=c++17 -lstdc++ -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk')
 
 let g:ale_fix_on_save = 1
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'go': ['goimports', 'gofmt'],
-\   'rust': ['rustfmt'],
 \   'python': ['isort', 'yapf'],
 \   'cpp': ['clang-format'],
 \}
