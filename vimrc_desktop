@@ -35,10 +35,12 @@ let g:ale_lint_on_text_changed = 'never'
 let g:ale_lint_on_insert_leave = 0
 
 let g:ale_c_clang_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk'
+let g:ale_c_clangd_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk'
 let g:ale_c_clangtidy_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk'
 let g:ale_c_gcc_options = '-std=c11 -Wall -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk'
 
 let g:ale_cpp_clang_options = '--std=c++20 -stdlib=libc++ -Wall'
+let g:ale_cpp_clangd_options = '--std=c++20 -stdlib=libc++ -Wall'
 let g:ale_cpp_clangtidy_options = '--std=c++20 -stdlib=libc++ -Wall'
 let g:ale_cpp_gcc_options = '--std=c++20 -stdlib=libc++ -Wall'
 
