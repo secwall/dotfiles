@@ -4,22 +4,22 @@ DISABLE_AUTO_UPDATE=true
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="secwall"
 HIST_IGNORE_SPACE=1
-plugins=(git python brew vagrant golang)
+plugins=(git python brew golang)
 
 source $ZSH/oh-my-zsh.sh
 
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 
-fpath=(/usr/local/share/zsh-completions $fpath)
+fpath=(/opt/homerew/share/zsh-completions $fpath)
 
 bindkey '^[[A'  up-line-or-search
 bindkey '^[[B'  down-line-or-search
 
-export EDITOR=/usr/local/bin/nvim
+export EDITOR=/opt/homerew/bin/nvim
 
 # Customize to your needs...
-export PATH=$HOME/Documents/dev/utils:/Developer/NVIDIA/CUDA-9.0/bin:/usr/local/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/sbin
+export PATH=$HOME/Documents/dev/utils:/opt/homebrew/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/sbin
 
 # Pyenv setup
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
