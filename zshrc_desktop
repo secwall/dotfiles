@@ -11,12 +11,13 @@ source $ZSH/oh-my-zsh.sh
 setopt hist_ignore_space
 setopt hist_ignore_all_dups
 
-fpath=(/opt/homerew/share/zsh-completions $fpath)
+fpath=(/opt/homebrew/share/zsh-completions $fpath)
 
 bindkey '^[[A'  up-line-or-search
 bindkey '^[[B'  down-line-or-search
 
-export EDITOR=/opt/homerew/bin/nvim
+export HOMEBREW_NO_ENV_HINTS=1
+export EDITOR=/opt/homebrew/bin/nvim
 
 # Customize to your needs...
 export PATH=$HOME/Documents/dev/utils:/opt/homebrew/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/sbin
