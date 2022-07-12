@@ -82,8 +82,10 @@ set listchars=tab:..
 set list
 
 set background=dark
+set termguicolors
+let g:onedark_color_overrides = {"background": {"gui": "#000000", "cterm": "000", "cterm16": "0" }}
 colorscheme onedark
-set t_Co=256
+let g:airline_theme='onedark'
 
 set colorcolumn=80
 
