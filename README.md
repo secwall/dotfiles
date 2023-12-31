@@ -10,7 +10,7 @@ zshrc_desktop - zsh config I use on desktop
 zshrc_servers - zsh config I use on servers
 
 
-vimrc_desktop - vim config I use on desktop
+nvim - neovim config I use on desktop
 
 
 vimrc_servers - vim config I use on servers

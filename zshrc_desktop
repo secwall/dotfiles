@@ -4,7 +4,7 @@ DISABLE_AUTO_UPDATE=true
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="secwall"
 HIST_IGNORE_SPACE=1
-plugins=(git python brew golang)
+plugins=(git python brew golang ripgrep)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -38,6 +38,9 @@ fi
 export CGO_CFLAGS_ALLOW='-objcmt-migrate-all'
 export GOPATH=$HOME/.go
 export PATH=$GOPATH/bin:$PATH
+
+export PATH=$HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin:$PATH
+export PATH=$HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin:$PATH
 
 # Start/attach to tmux on remote host
 ssht () {
