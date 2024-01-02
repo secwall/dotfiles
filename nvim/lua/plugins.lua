@@ -70,6 +70,7 @@ return {
                             fallback()
                         end
                     end, {"i","s","c",}),
+                    ["<CR>"] = cmp.mapping.confirm({ select = true }),
                 }),
                 sources = {
                     { name = "nvim_lsp" },
