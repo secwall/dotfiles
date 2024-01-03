@@ -9,12 +9,43 @@ return {
         end,
     },
     {
-        "vim-airline/vim-airline",
+        "nvim-lualine/lualine.nvim",
+        dependencies = { "nvim-tree/nvim-web-devicons" },
         lazy = false,
         priority = 999,
-        config = function()
-            vim.cmd([[let g:airline_theme='onedark']])
-        end,
+        opts = {
+            options = {
+                icons_enabled = true,
+                theme = 'onedark',
+                always_divide_middle = true,
+                globalstatus = false,
+                refresh = {
+                    statusline = 1000,
+                    tabline = 1000,
+                    winbar = 1000,
+                }
+            },
+            sections = {
+                lualine_a = {'mode'},
+                lualine_b = {'branch', 'diff', 'diagnostics'},
+                lualine_c = {'filename'},
+                lualine_x = {'encoding', 'fileformat', 'filetype'},
+                lualine_y = {'progress'},
+                lualine_z = {'location'}
+            },
+            inactive_sections = {
+                lualine_a = {},
+                lualine_b = {},
+                lualine_c = {'filename'},
+                lualine_x = {'location'},
+                lualine_y = {},
+                lualine_z = {}
+            },
+            tabline = {},
+            winbar = {},
+            inactive_winbar = {},
+            extensions = {}
+        }
     },
     {
         "preservim/nerdcommenter",
@@ -25,7 +56,7 @@ return {
         build = "make install_jsregexp",
         dependencies = {
             "rafamadriz/friendly-snippets",
-                config = function()
+            config = function()
                 require("luasnip.loaders.from_vscode").lazy_load()
             end,
         },
