@@ -265,4 +265,29 @@ return {
             end
         end,
     },
+    {
+        "nvim-telescope/telescope.nvim",
+        cmd = "Telescope",
+        version = false,
+        dependencies = {
+            { "nvim-lua/plenary.nvim" },
+            {
+                "nvim-telescope/telescope-fzf-native.nvim",
+                build = "make",
+                enabled = vim.fn.executable("make") == 1,
+                config = function()
+                    require("telescope").load_extension("fzf")
+                end,
+            },
+        },
+        keys = {
+            { "<leader>,", "<cmd>Telescope buffers sort_mru=true sort_lastused=true<CR>", desc = "Switch Buffer" },
+            { "<leader><space>", "<cmd>Telescope find_files<CR>", desc = "Files" },
+            { "<leader>/", "<cmd>Telescope live_grep<CR>", desc = "Grep" },
+            { "<leader>:", "<cmd>Telescope command_history<CR>", desc = "Command History" },
+            { "<leader>gc", "<cmd>Telescope git_commits<CR>", desc = "Git commits" },
+            { "<leader>gs", "<cmd>Telescope git_status<CR>", desc = "Git status" },
+            { "<leader>ss", "<cmd>Telescope lsp_document_symbols<CR>", desc = "LSP symbols" },
+        },
+    },
 }
