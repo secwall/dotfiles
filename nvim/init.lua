@@ -36,4 +36,6 @@ vim.opt.colorcolumn = "80"
 vim.opt.pastetoggle = "<F2>"
 vim.opt.number = true
 
+vim.g.mapleader = " "
+
 require("lazy").setup("plugins")
