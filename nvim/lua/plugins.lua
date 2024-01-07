@@ -280,7 +280,7 @@ return {
     },
     {
         'lvimuser/lsp-inlayhints.nvim',
-        ft = { 'rust', 'go', 'cpp' },
+        ft = { 'rust', 'go', 'c', 'cpp' },
     },
     {
         "nvim-telescope/telescope.nvim",
