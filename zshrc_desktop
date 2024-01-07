@@ -20,7 +20,7 @@ export HOMEBREW_NO_ENV_HINTS=1
 export EDITOR=/opt/homebrew/bin/nvim
 
 # Customize to your needs...
-export PATH=$HOME/Documents/dev/utils:/opt/homebrew/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/sbin
+export PATH=$HOME/Documents/dev/utils:/opt/homebrew/bin:$HOME/.cargo/bin:$PATH:/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/sbin
 
 # Pyenv setup
 export PYTHON_CONFIGURE_OPTS="--enable-framework"
