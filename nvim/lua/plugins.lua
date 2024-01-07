@@ -222,6 +222,14 @@ return {
                                 unusedwrite = true,
                                 useany = true,
                             },
+                            hints = {
+                                assignVariableTypes = true,
+                                compositeLiteralFields = true,
+                                constantValues = true,
+                                functionTypeParameters = true,
+                                parameterNames = true,
+                                rangeVariableTypes = true,
+                            },
                             experimentalPostfixCompletions = true,
                             gofumpt = true,
                             staticcheck = true,
@@ -264,6 +272,15 @@ return {
                 require("lspconfig")[server].setup(opts)
             end
         end,
+    },
+    {
+        'mrcjkb/rustaceanvim',
+        version = '^3',
+        ft = { 'rust' },
+    },
+    {
+        'lvimuser/lsp-inlayhints.nvim',
+        ft = { 'rust', 'go', 'cpp' },
     },
     {
         "nvim-telescope/telescope.nvim",
