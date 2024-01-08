@@ -180,6 +180,9 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
+        dependencies = {
+            { 'lvimuser/lsp-inlayhints.nvim', opts = {}, },
+        },
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             servers = {
@@ -212,6 +215,11 @@ return {
                         completeUnimported = true,
                         clangdFileStatus = true,
                     },
+                    on_attach = function(client, bufnr)
+                        if client.server_capabilities.inlayHintProvider then
+                            require("lsp-inlayhints").on_attach(client, bufnr)
+                        end
+                    end,
                 },
                 gopls = {
                     settings = {
@@ -236,6 +244,11 @@ return {
                             usePlaceholders = true,
                         },
                     },
+                    on_attach = function(client, bufnr)
+                        if client.server_capabilities.inlayHintProvider then
+                            require("lsp-inlayhints").on_attach(client, bufnr)
+                        end
+                    end,
                 },
                 pylsp = {
                     settings = {
@@ -276,9 +289,15 @@ return {
     {
         'mrcjkb/rustaceanvim',
         version = '^3',
+        dependencies = {
+            { 'lvimuser/lsp-inlayhints.nvim', opts = {}, },
+        },
         ft = { 'rust' },
         opts = {
             server = {
+                on_attach = function(client, bufnr)
+                    require("lsp-inlayhints").on_attach(client, bufnr)
+                end,
                 settings = {
                     ["rust-analyzer"] = {
                         cargo = {
@@ -306,10 +325,6 @@ return {
         config = function(_, opts)
             vim.g.rustaceanvim = vim.tbl_deep_extend("force", {}, opts or {})
         end,
-    },
-    {
-        'lvimuser/lsp-inlayhints.nvim',
-        ft = { 'rust', 'go', 'c', 'cpp' },
     },
     {
         "nvim-telescope/telescope.nvim",
