@@ -75,27 +75,6 @@ ssh-copy-id () {
 
 compdef ssh-copy-id=ssh
 
-# show all packages without deps (homebrew)
-alias 'brew-world'='for i in `brew list --formula`; do USES=`brew uses --installed $i`; if [ "$USES" = "" ]; then echo $i; fi; done'
-
-brew-dep-rm () {
-    if [[ "$1" != "" ]]
-    then
-        TMP_FNAME="/tmp/$0_$RANDOM.list"
-        for i in $*
-        do
-            brew-world | grep -v $i > $TMP_FNAME
-            brew rm $i
-            CUR_DEPS="`brew-world | grep -v -f $TMP_FNAME`"
-            while [[ "$CUR_DEPS" != "" ]]
-            do
-                brew-dep-rm $CUR_DEPS
-            done
-        done
-        rm -f "$TMP_FNAME"
-    fi
-}
-
 brew-up () {
     brew update && brew upgrade && brew upgrade --cask --greedy && brew cleanup -s
 }
