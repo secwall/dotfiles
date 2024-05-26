@@ -33,7 +33,6 @@ vim.opt.list = true
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = "80"
-vim.opt.pastetoggle = "<F2>"
 vim.opt.number = true
 
 vim.g.mapleader = " "

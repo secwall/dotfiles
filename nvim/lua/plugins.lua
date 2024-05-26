@@ -181,7 +181,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { 'lvimuser/lsp-inlayhints.nvim', opts = {}, },
+            { 'MysticalDevil/inlay-hints.nvim', opts = {}, },
         },
         event = { "BufReadPre", "BufNewFile" },
         opts = {
@@ -215,9 +215,19 @@ return {
                         completeUnimported = true,
                         clangdFileStatus = true,
                     },
+                    settings = {
+                        clangd = {
+                            InlayHints = {
+                                Designators = true,
+                                Enabled = true,
+                                ParameterNames = true,
+                                DeducedTypes = true,
+                            }
+                        },
+                    },
                     on_attach = function(client, bufnr)
                         if client.server_capabilities.inlayHintProvider then
-                            require("lsp-inlayhints").on_attach(client, bufnr)
+                            require("inlay-hints").on_attach(client, bufnr)
                         end
                     end,
                 },
@@ -246,7 +256,7 @@ return {
                     },
                     on_attach = function(client, bufnr)
                         if client.server_capabilities.inlayHintProvider then
-                            require("lsp-inlayhints").on_attach(client, bufnr)
+                            require("inlay-hints").on_attach(client, bufnr)
                         end
                     end,
                 },
@@ -290,13 +300,13 @@ return {
         'mrcjkb/rustaceanvim',
         version = '^3',
         dependencies = {
-            { 'lvimuser/lsp-inlayhints.nvim', opts = {}, },
+            { 'MysticalDevil/inlay-hints.nvim', opts = {}, },
         },
         ft = { 'rust' },
         opts = {
             server = {
                 on_attach = function(client, bufnr)
-                    require("lsp-inlayhints").on_attach(client, bufnr)
+                    require("inlay-hints").on_attach(client, bufnr)
                 end,
                 settings = {
                     ["rust-analyzer"] = {
