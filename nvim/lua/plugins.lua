@@ -280,6 +280,13 @@ return {
                         },
                     },
                 },
+                harper_ls = {
+                    settings = {
+                        ["hparper-ls"] = {
+                            maxFileLength = 150000
+                        }
+                    },
+                },
             },
         },
         config = function(_, opts)
