@@ -157,6 +157,7 @@ return {
                     "python",
                     "regex",
                     "rust",
+                    "tlaplus",
                     "toml",
                     "yaml",
                 },
