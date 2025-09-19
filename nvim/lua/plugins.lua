@@ -188,17 +188,15 @@ return {
         opts = {
             servers = {
                 clangd = {
-                    root_dir = function(fname)
-                        return require("lspconfig.util").root_pattern(
-                            "Makefile",
-                            "configure.ac",
-                            "configure.in",
-                            "config.h.in",
-                            "meson.build",
-                            "meson_options.txt",
-                            "build.ninja"
-                        )(fname) or require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt")(fname) or require("lspconfig.util").find_git_ancestor(fname)
-                    end,
+                    root_markers = {
+                        '.clangd',
+                        '.clang-tidy',
+                        '.clang-format',
+                        'compile_commands.json',
+                        'compile_flags.txt',
+                        'configure.ac',
+                        '.git',
+                    },
                     capabilities = {
                         offsetEncoding = { "utf-16" },
                     },
@@ -300,7 +298,8 @@ return {
                     capabilities = vim.deepcopy(capabilities),
                 }, server_opts)
 
-                require("lspconfig")[server].setup(opts)
+                vim.lsp.config[server] = opts
+                vim.lsp.enable(server)
             end
         end,
     },
