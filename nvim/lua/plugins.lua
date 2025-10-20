@@ -180,6 +180,9 @@ return {
         end,
     },
     {
+        "lewis6991/gitsigns.nvim",
+    },
+    {
         "neovim/nvim-lspconfig",
         dependencies = {
             { 'MysticalDevil/inlay-hints.nvim', opts = {}, },
