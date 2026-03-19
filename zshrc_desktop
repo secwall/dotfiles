@@ -1,3 +1,6 @@
+# Suppress Ghostty last login message
+printf '\33c\e[3J'
+
 ulimit -n 16384
 
 DISABLE_AUTO_UPDATE=true
