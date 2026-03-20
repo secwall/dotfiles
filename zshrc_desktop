@@ -1,5 +1,6 @@
 # Suppress Ghostty last login message
 printf '\33c\e[3J'
+export TERM=xterm-256color
 
 ulimit -n 16384
 
