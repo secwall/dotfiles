@@ -1,15 +1,16 @@
 printf '\33c\e[3J'
 ulimit -n 16384 >/dev/null 2>&1
-set LC_CTYPE en_US.UTF-8
-set LC_ALL en_US.UTF-8
-set TERM xterm-256color
-set EDITOR /opt/homebrew/bin/nvim
-set GOPATH $HOME/.go
-set CPM_SOURCE_CACHE /Users/secwall/.cache/CPM
+set -gx LC_CTYPE en_US.UTF-8
+set -gx LC_ALL en_US.UTF-8
+set -gx TERM xterm-256color
+set -gx EDITOR /opt/homebrew/bin/nvim
+set -gx GOPATH $HOME/.go
+set -gx CPM_SOURCE_CACHE /Users/secwall/.cache/CPM
 
 fish_add_path $HOME/Documents/dev/utils
 fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/bin
+fish_add_path $GOPATH/.go/bin
 fish_add_path $HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin
 fish_add_path $HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 
