@@ -1,3 +1,5 @@
+# fisher install rkbk60/onedark-fish
+# fisher install patrickf1/fzf.fish
 printf '\33c\e[3J'
 ulimit -n 16384 >/dev/null 2>&1
 set -gx LC_CTYPE en_US.UTF-8
@@ -6,6 +8,8 @@ set -gx TERM xterm-256color
 set -gx EDITOR /opt/homebrew/bin/nvim
 set -gx GOPATH $HOME/.go
 set -gx CPM_SOURCE_CACHE /Users/secwall/.cache/CPM
+
+set_onedark
 
 fish_add_path $HOME/Documents/dev/utils
 fish_add_path /opt/homebrew/bin
