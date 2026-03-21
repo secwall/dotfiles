@@ -4,10 +4,13 @@ dotfiles
 Some config files (e.g. bash, vim, etc)
 
 
-zshrc_desktop - zsh config I use on desktop
+config.fish - fish config I use on desktop
 
 
-zshrc_servers - zsh config I use on servers
+config.ghostty - ghostty config I use on desktop
+
+
+starship.toml - starship config I use on desktop
 
 
 nvim - neovim config I use on desktop
