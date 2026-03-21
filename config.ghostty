@@ -1,0 +1,9 @@
+command = /opt/homebrew/bin/fish
+theme = iTerm2 Dark Background
+background-opacity = 1.0
+font-family = MesloLGL Nerd Font Mono
+maximize = true
+cursor-style = block
+cursor-style-blink = false
+shell-integration-features = no-cursor
+mouse-reporting = false
