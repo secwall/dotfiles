@@ -18,7 +18,7 @@ fish_add_path $GOPATH/.go/bin
 fish_add_path $HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin
 fish_add_path $HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 
-pyenv init - | source
+pyenv init - --no-rehash | source
 
 alias vim nvim
 
