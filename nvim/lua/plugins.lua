@@ -184,9 +184,6 @@ return {
     },
     {
         "neovim/nvim-lspconfig",
-        dependencies = {
-            { 'MysticalDevil/inlay-hints.nvim', opts = {}, },
-        },
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             servers = {
@@ -229,7 +226,7 @@ return {
                     },
                     on_attach = function(client, bufnr)
                         if client.server_capabilities.inlayHintProvider then
-                            require("inlay-hints").on_attach(client, bufnr)
+                            vim.lsp.inlay_hint.enable(true)
                         end
                     end,
                 },
@@ -258,7 +255,7 @@ return {
                     },
                     on_attach = function(client, bufnr)
                         if client.server_capabilities.inlayHintProvider then
-                            require("inlay-hints").on_attach(client, bufnr)
+                            vim.lsp.inlay_hint.enable(true)
                         end
                     end,
                 },
@@ -309,14 +306,11 @@ return {
     {
         'mrcjkb/rustaceanvim',
         version = '^3',
-        dependencies = {
-            { 'MysticalDevil/inlay-hints.nvim', opts = {}, },
-        },
         ft = { 'rust' },
         opts = {
             server = {
                 on_attach = function(client, bufnr)
-                    require("inlay-hints").on_attach(client, bufnr)
+                    vim.lsp.inlay_hint.enable(true)
                 end,
                 settings = {
                     ["rust-analyzer"] = {
