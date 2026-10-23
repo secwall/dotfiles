@@ -1,3 +1,7 @@
+if not status is-interactive
+    return
+end
+
 # fisher install rkbk60/onedark-fish
 # fisher install patrickf1/fzf.fish
 printf '\33c\e[3J'
