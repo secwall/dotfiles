@@ -15,10 +15,11 @@ set -gx CPM_SOURCE_CACHE /Users/secwall/.cache/CPM
 
 set_onedark
 
+fish_add_path /opt/homebrew/opt/ccache/libexec
 fish_add_path $HOME/Documents/dev/utils
 fish_add_path /opt/homebrew/bin
 fish_add_path /usr/local/bin
-fish_add_path $GOPATH/.go/bin
+fish_add_path $GOPATH/bin
 fish_add_path $HOME/.rustup/toolchains/nightly-aarch64-apple-darwin/bin
 fish_add_path $HOME/.rustup/toolchains/stable-aarch64-apple-darwin/bin
 
